@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+  color: #1d1d1f;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f4f6 40%, #e9eaee 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0));
+}
+
+.navdiv {
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1160px, 100% - 32px);
+  margin: 20px auto 0;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+.navdiv__span {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: #1d1d1f;
+}
+.navdiv__navigation {
+  display: flex;
+  gap: 30px;
+  color: #6e6e73;
+  font-size: 16px;
+  align-items: center;
+}
+.navdiv__navigation a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.25s ease;
+}
+.navdiv__navigation a:hover {
+  color: #1d1d1f;
+}
+@media (max-width: 1024px) {
+  .navdiv {
+    width: calc(100% - 24px);
+    padding: 10px 16px;
+  }
+  .navdiv__span {
+    font-size: 18px;
+  }
+  .navdiv__navigation {
+    gap: 20px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .navdiv {
+    width: calc(100% - 30px);
+    padding: 8px 10px;
+  }
+  .navdiv__span {
+    font-size: 15px;
+  }
+  .navdiv__span-surname {
+    display: none;
+  }
+  .navdiv__navigation {
+    gap: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}

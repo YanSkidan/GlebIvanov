@@ -8,9 +8,7 @@ var __commonJS = (cb, mod) => function __require() {
 
 // src/components/navigation/navigation.ts
 function initNavigation() {
-  const navigation = document.querySelector(".side-nav");
   if (!navigation) return;
-  console.log("Navigation initialized");
 }
 var init_navigation = __esm({
   "src/components/navigation/navigation.ts"() {

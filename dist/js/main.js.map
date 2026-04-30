@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../src/components/navigation/navigation.ts", "../../src/ts/main.ts"],
-  "sourcesContent": ["export function initNavigation(): void {\r\n  const navigation = document.querySelector('.side-nav');\r\n\r\n  if (!navigation) return;\r\n\r\n  console.log('Navigation initialized');\r\n}", "import { initNavigation } from '../components/navigation/navigation';\r\n\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n  initNavigation();\r\n});"],
-  "mappings": ";;;;;;;;;AAAO,SAAS,iBAAuB;AACrC,QAAM,aAAa,SAAS,cAAc,WAAW;AAErD,MAAI,CAAC,WAAY;AAEjB,UAAQ,IAAI,wBAAwB;AACtC;AANA;AAAA;AAAA;AAAA;AAAA;;;ACAA;AAAA;AAAA;AAEA,aAAS,iBAAiB,oBAAoB,MAAM;AAClD,qBAAe;AAAA,IACjB,CAAC;AAAA;AAAA;",
+  "sourcesContent": ["export function initNavigation(): void {\r\n  if (!navigation) return;\r\n}", "import { initNavigation } from '../components/navigation/navigation';\r\n\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n  initNavigation();\r\n});"],
+  "mappings": ";;;;;;;;;AAAO,SAAS,iBAAuB;AACrC,MAAI,CAAC,WAAY;AACnB;AAFA;AAAA;AAAA;AAAA;AAAA;;;ACAA;AAAA;AAAA;AAEA,aAAS,iBAAiB,oBAAoB,MAAM;AAClD,qBAAe;AAAA,IACjB,CAAC;AAAA;AAAA;",
   "names": []
 }

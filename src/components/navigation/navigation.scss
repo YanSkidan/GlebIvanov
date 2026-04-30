@@ -1,0 +1,75 @@
+@use '../../scss/base/variables' as *;
+@use '../../scss/base/mixins' as *;
+.navdiv{
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: min(1160px, calc(100% - 32px));
+  margin: 20px auto 0;
+  padding: 12px 20px;
+
+  background: rgba(255,255,255,0.74);
+  border: 1px solid rgba(255,255,255,0.85);
+  border-radius: 999px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  &__span{
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: $color-dark;
+  }
+
+  &__navigation{
+    display: flex;
+    gap: 30px;
+    color: $color-muted;
+    font-size: 16px;
+    align-items: center;
+    a{
+      text-decoration: none;
+      color: inherit;
+      transition: color .25s ease;
+      &:hover{
+        color: $color-dark;
+      }
+    }
+  }
+  
+  
+
+  @include tablet{
+    width: calc(100% - 24px);
+    padding: 10px 16px;
+
+    &__span{
+      font-size: 18px;
+    }
+    &__navigation{
+      gap: 20px;
+      font-size: 14px;
+    }
+  }
+  @include mobile{
+    width: calc(100% - 30px);
+    padding: 8px 10px;
+
+    &__span{
+      font-size: 15px;
+      &-surname{
+        display: none;
+      }
+    }
+  
+    &__navigation{
+      gap: 8px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+  }
+}
