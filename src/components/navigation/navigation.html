@@ -1,12 +1,18 @@
-<div class="navdiv">
-  <span class="navdiv__span">Gleb <span class="navdiv__span-surname">Ivanov</span></span>
-  <nav class="navdiv__navigation">
-    
-      <a href="#main">Главная</a>
-      <a href="#about">О Глебе</a>
-      <a href="#services">Услуги</a>
-      <a href="#contacts">Контакты</a>
-    
-  </nav>
-  
-</div>
+<!-- Используем семантичный тег nav как главный контейнер -->
+<nav class="navbar">
+  <div class="navbar__brand">
+    <a href="https://www.instagram.com/glebas_ivanov38?igsh=MXVrOWZjbnAxbGIydA%3D%3D&utm_source=qr" 
+    class="navbar__social" target="_blank" rel="noopener noreferrer" aria-label="Instagram" >
+      <img src="../../images/avatar.png" alt="inst" class="navbar__avatar"  width="34" height="34">
+    </a>
+    <a href="#main" class="navbar__logo">
+      Gleb <span class="navbar__surname">Ivanov</span>
+    </a>
+  </div>
+  <div class="navbar__menu">
+    <a href="#main" class="navbar__link">Главная</a>
+    <a href="#about" class="navbar__link">О Глебе</a>
+    <a href="#services" class="navbar__link">Услуги</a>
+    <a href="#contacts" class="navbar__link">Контакты</a>
+  </div>
+</nav>

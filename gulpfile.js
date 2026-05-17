@@ -5,10 +5,12 @@ const browserSync = require('browser-sync').create();
 const { deleteAsync } = require('del');
 const esbuild = require('esbuild');
 
+// 1. Очистка папки dist
 function clean() {
   return deleteAsync(['dist']);
 }
 
+// 2. Сборка HTML
 function html() {
   return gulp
     .src('src/index.html')
@@ -21,6 +23,7 @@ function html() {
     .pipe(gulp.dest('dist'));
 }
 
+// 3. Компиляция SCSS
 function scss() {
   return gulp
     .src('src/scss/main.scss')
@@ -29,6 +32,7 @@ function scss() {
     .pipe(browserSync.stream());
 }
 
+// 4. Сборка TypeScript через esbuild
 function typescript() {
   return esbuild.build({
     entryPoints: ['src/ts/main.ts'],
@@ -40,32 +44,47 @@ function typescript() {
   });
 }
 
+// 5. ИСПРАВЛЕННАЯ ФУНКЦИЯ КАРТИНКОВ: Явно возвращаем поток (return)
+function images() {
+  return gulp
+    .src('src/images/**/*', { encoding: false }) // Отключаем текстовую кодировку для бинарных файлов (очень важно в Gulp 5)
+    .pipe(gulp.dest('dist/images'))
+    .pipe(browserSync.stream());
+}
+
+// 6. Локальный сервер
 function serve(done) {
   browserSync.init({
     server: './dist',
     port: 3000,
     open: false
   });
-
   done();
 }
 
+// 7. Перезагрузка браузера
 function reload(done) {
   browserSync.reload();
   done();
 }
 
+// 8. Слежение за файлами
 function watchFiles() {
   gulp.watch('src/**/*.html', gulp.series(html, reload));
   gulp.watch('src/**/*.scss', scss);
   gulp.watch('src/**/*.ts', gulp.series(typescript, reload));
+  gulp.watch('src/images/**/*', gulp.series(images, reload)); // Добавили перезагрузку при изменении картинок
 }
 
+// --- Сценарии ---
+
+// Полная сборка (strict последовательность: сначала чистим, ПОТОМ копируем)
 const build = gulp.series(
   clean,
-  gulp.parallel(html, scss, typescript)
+  gulp.parallel(html, scss, typescript, images)
 );
 
+// Режим разработки
 const dev = gulp.series(
   build,
   serve,
@@ -76,6 +95,7 @@ exports.clean = clean;
 exports.html = html;
 exports.scss = scss;
 exports.typescript = typescript;
+exports.images = images;
 exports.build = build;
 exports.dev = dev;
 exports.default = dev;
