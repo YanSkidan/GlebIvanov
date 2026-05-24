@@ -194,11 +194,7 @@
         rgba(0, 0, 0, 0.64) 0%,
         rgba(0, 0, 0, 0.4) 32%,
         transparent 62%
-      ),
-      url('../images/header_photo_mobile.JPG');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center 55%;
+      );
 
     &__container {
       z-index: 1;
@@ -258,6 +254,21 @@
       );
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      right: 0;
+      top: -12%;
+      height: 112%;
+      background-image:
+        url('../images/header_photo_mobile.JPG');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center 55%;
+      filter: brightness(0.75);
+    }
   }
 
   @include mobile {
@@ -274,11 +285,7 @@
         rgba(0, 0, 0, 0.52) 0%,
         rgba(0, 0, 0, 0.27) 28%,
         transparent 55%
-      ),
-      url('../images/header_photo_mobile.JPG');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center 55%;
+      );
 
     &__container {
       margin: 35% auto 0;
@@ -319,5 +326,8 @@
       );
     }
 
+    &::before {
+      filter: brightness(0.75);
+    }
   }
 }
