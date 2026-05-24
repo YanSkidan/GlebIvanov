@@ -1,4 +1,3 @@
 export function initNavigation(): void {
-  if (!navigation) return;
-
+  // Reserved for future navigation logic.
 }
