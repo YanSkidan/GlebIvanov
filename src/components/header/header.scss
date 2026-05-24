@@ -10,8 +10,11 @@
   }
 }
 .header {
-  
-  min-height: 90vh;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-height: 100vh;
   width: 100%;
   
   display: flex;
@@ -28,18 +31,35 @@
   &__container {
     width: 100%;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 70px;
     padding: 0 12%; 
   }
+ &__menu{
+  font-size: clamp(18px, 1.7vw, 40px); 
+  font-weight: 500; 
+  line-height: 1.5;
+  letter-spacing: 0.01em; 
+  max-width: 550px; 
+  margin-bottom: 25px;
 
+  opacity: 0; 
+  animation: fadeUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+
+  background: linear-gradient(180deg, #dbdbdb 50%, #acacac 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+ }
  &__title {
+    
     font-size: clamp(42px, 4.3vw, 70px); 
     font-weight: 800; 
     letter-spacing: -0.02em;
     line-height: 1.1;
-    margin-bottom: 40px; 
+    margin-bottom: 5px; 
     max-width: 600px; 
-    
+    margin-top: 0;
     //Анимация появления
     opacity: 0; 
     animation: fadeUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -70,7 +90,7 @@
   }
 
   &__subtitle {
-    font-size: clamp(18px, 2vw, 40px); 
+    font-size: clamp(18px, 1.9vw, 40px); 
     font-weight: 500; 
     line-height: 1.5;
     letter-spacing: 0.01em; 
@@ -106,8 +126,208 @@
 
       
     }
+    
   }
-  @include tablet{
+  &__buttons{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+  }
 
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 20px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-size: clamp(16px, 1.15vw, 20px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+    box-shadow: 0 8px 20px rgba(3, 7, 14, 0.22);
+  }
+
+  &__button--primary {
+    background-color: rgba(11, 18, 28, 0.88);
+    color: #ffffff;
+    border-color: transparent;
+  }
+
+  &__button--secondary {
+    background-color: rgba(231, 236, 242, 0.9);
+    color: #0f1722;
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 18px rgba(7, 12, 20, 0.16);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__button:hover {
+      transform: translateY(-2px);
+    }
+
+    &__button--primary:hover {
+      background-color: rgba(12, 20, 31, 0.96);
+      box-shadow: 0 12px 26px rgba(2, 6, 12, 0.34);
+    }
+
+    &__button--secondary:hover {
+      background-color: rgba(244, 247, 251, 0.98);
+      box-shadow: 0 12px 24px rgba(7, 12, 20, 0.22);
+    }
+  }
+  @include tablet {
+    background-image:
+      linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.75) 28%,
+        rgba(0, 0, 0, 0.45) 55%,
+        transparent 78%
+      ),
+      linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.64) 0%,
+        rgba(0, 0, 0, 0.4) 32%,
+        transparent 62%
+      );
+
+    &__container {
+      z-index: 1;
+      width: 100%;
+      margin: 35vh auto 0;
+      padding: 10%;
+    }
+    &__menu{
+      display: none;
+    }
+    &__title {
+      font-size: clamp(28px, 9vw, 100px);
+      margin-bottom: 10px;
+      letter-spacing: -0.06em;
+      word-spacing: -0.12em;
+    }
+
+    &__subtitle {
+      font-size: clamp(15px, 5.2vw, 80px);
+      margin-top: 10px;
+      margin-bottom: 0;
+      letter-spacing: -0.06em;
+      word-spacing: -0.12em;
+    }
+
+    &__buttons {
+      margin-top: 18px;
+      gap: 10px;
+    }
+
+    &__button {
+      min-height: 46px;
+      padding: 0 18px;
+      font-size: clamp(14px, 3vw, 24px);
+      margin-top: 20px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      &:hover span{
+        transform: translateY(-3px);
+        filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.1));
+      }
+      &:focus-visible span{
+        transform: translateY(-3px);
+        filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.1));
+      }
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.32) 0%,
+        rgba(0, 0, 0, 0.17) 38%,
+        transparent 58%
+      );
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      right: 0;
+      top: -12%;
+      height: 112%;
+      background-image:
+        url('../images/header_photo_mobile.JPG');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center 55%;
+      filter: brightness(0.75);
+    }
+  }
+
+  @include mobile {
+    background-image:
+      linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.67) 30%,
+        rgba(0, 0, 0, 0.37) 58%,
+        transparent 80%
+      ),
+      linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.52) 0%,
+        rgba(0, 0, 0, 0.27) 28%,
+        transparent 55%
+      );
+
+    &__container {
+      margin: 35vh auto 0;
+      padding: 5%;
+    }
+
+    &__title {
+      font-size: clamp(28px, 11vw, 70px);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      word-spacing: normal;
+    }
+
+    &__subtitle {
+      font-size: clamp(15px, 6vw, 60px);
+      
+      margin-bottom: 0;
+      letter-spacing: 0.01em;
+      word-spacing: normal;
+    }
+
+    &__buttons {
+      margin-top: 16px;
+      gap: 8px;
+    }
+
+    &__button {
+      min-height: 40px;
+      padding: 0 16px;
+      font-size: clamp(13px, 4vw, 16px);
+    }
+
+    &::after {
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.22) 0%,
+        transparent 48%
+      );
+    }
+
+    &::before {
+      filter: brightness(0.75);
+    }
   }
 }

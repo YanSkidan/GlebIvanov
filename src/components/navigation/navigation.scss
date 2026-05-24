@@ -187,12 +187,12 @@
   }
 
   @include tablet {
-    width: calc(100% - 24px);
+    width: calc(100% - 50px);
     padding: 4px 14px;
     top: 0px;
 
     &__brand {
-      gap: 10px;
+      gap: 12px;
     }
 
     &__social {
@@ -206,17 +206,17 @@
     }
 
     &__logo {
-      font-size: 18px;
+      font-size: 24px;
     }
 
     &__menu {
       gap: 20px;
-      font-size: 14px;
+      font-size: 20px;
     }
   }
 
   @include mobile {
-    width: calc(100% - 30px);
+    width: calc(100% - 40px);
     padding: 3px 8px;
 
     &__brand {
@@ -234,7 +234,7 @@
     }
 
     &__logo {
-      font-size: 15px;
+      font-size: 18px;
     }
 
     &__surname {
@@ -243,7 +243,7 @@
 
     &__menu {
       gap: 8px;
-      font-size: 12px;
+      font-size: 15px;
       white-space: nowrap;
     }
   }
