@@ -15,7 +15,6 @@
   overflow: hidden;
 
   min-height: 100vh;
-  min-height: 100svh;
   width: 100%;
   
   display: flex;
@@ -200,7 +199,7 @@
     &__container {
       z-index: 1;
       width: 100%;
-      margin: 35svh auto 0;
+      margin: 35vh auto 0;
       padding: 10%;
     }
     &__menu{
@@ -289,7 +288,7 @@
       );
 
     &__container {
-      margin: 35svh auto 0;
+      margin: 35vh auto 0;
       padding: 5%;
     }
 
