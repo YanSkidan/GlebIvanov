@@ -1,10 +1,12 @@
 @use '../../../scss/base/variables' as *;
 @use '../../../scss/base/mixins' as *;
 
-// Блок services
+// Services section
 .services {
+  // Layout
   width: 100%;
-  // Сетка секции
+
+  // Section grid
   &__section {
     display: grid;
     grid-template-columns: $services-nav-column-width minmax(0, 1fr);
@@ -15,7 +17,8 @@
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    // Подпись слева
+
+    // Typography: label
     &-description {
       color: #6e6e73;
       font-size: 24px;
@@ -25,14 +28,14 @@
       align-self: end;
     }
 
-    // Левая колонка
+    // Left column
     &-nav {
       grid-column: 1;
       grid-row: 2;
       display: flex;
       min-height: 0;
 
-      // Список кнопок
+      // Navigation list
       &-list {
         display: flex;
         flex-direction: column;
@@ -45,7 +48,7 @@
         border-radius: $services-card-radius;
       }
 
-      // Кнопка услуги
+      // Navigation item
       &-item {
         user-select: none;
         display: flex;
@@ -67,7 +70,7 @@
           background-color 0.25s ease,
           color 0.25s ease;
 
-        // Hover PC
+        // Interaction: hover
         @include hover {
           &:hover {
             transform: translateX(3px);
@@ -75,7 +78,7 @@
           }
         }
 
-        // Активная кнопка
+        // State: active
         &.is-active {
           background: #111113;
           color: #fff;
@@ -86,7 +89,7 @@
           }
         }
 
-        // Номер в круге
+        // Number badge
         & span {
           display: inline-grid;
           place-items: center;
@@ -104,7 +107,7 @@
       }
     }
 
-    // Правая колонка
+    // Right column
     &-content {
       grid-column: 2;
       grid-row: 2;
@@ -112,7 +115,7 @@
       display: flex;
     }
 
-    // Карточка контента
+    // Content card
     &-article {
       flex: 1;
       display: flex;
@@ -124,7 +127,7 @@
       box-shadow: $services-card-shadow;
     }
 
-    // Заголовок h3
+    // Typography: title
     &-title {
       display: block;
       max-width: 80%;
@@ -140,7 +143,7 @@
   }
 }
 
-// Reveal base
+// Reveal: base
 .service-reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -152,14 +155,14 @@
   will-change: opacity, transform, filter;
 }
 
-// Reveal shown
+// Reveal: visible state
 .service-reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
 }
 
-// Stagger cards
+// Reveal: stagger cards
 .services__info.service-reveal > div {
   opacity: 0;
   transform: translateY(14px);
@@ -181,6 +184,7 @@
   transition-delay: 0.22s;
 }
 
+// Accessibility: reduced motion
 @media (prefers-reduced-motion: reduce) {
   .service-reveal,
   .services__info.service-reveal > div {
