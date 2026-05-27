@@ -21,7 +21,7 @@
     width: 92%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 50px;
     gap: 12px;
   }
 
@@ -42,13 +42,14 @@
 
     @include tablet {
       width: calc((100% - 18px) / 2);
-      max-width: 200px;
+      max-width: 250px;
       min-width: 0;
       padding: 18px 16px;
     }
 
     @include mobile {
       width: calc((100% - 12px) / 2);
+      max-width: 200px;
       min-width: 0;
       padding: 16px 14px;
     }
@@ -63,7 +64,7 @@
     line-height: 1.1;
 
     @include tablet {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     @include mobile {
@@ -83,7 +84,7 @@
     margin-top: 10px;
 
     @include tablet {
-      font-size: 16px;
+      font-size: 18px;
       margin-top: 8px;
     }
 
