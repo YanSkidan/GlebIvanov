@@ -1,14 +1,4 @@
 @use '../../scss/base/mixins' as *;
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px); 
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); 
-  }
-}
 .header {
   position: relative;
   isolation: isolate;
@@ -42,9 +32,6 @@
   max-width: 550px; 
   margin-bottom: 25px;
 
-  opacity: 0; 
-  animation: fadeUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-
   background: linear-gradient(180deg, #dbdbdb 50%, #acacac 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -60,10 +47,6 @@
     margin-bottom: 5px; 
     max-width: 600px; 
     margin-top: 0;
-    //Анимация появления
-    opacity: 0; 
-    animation: fadeUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-
     a {
       display: inline-block; 
       
@@ -96,10 +79,6 @@
     letter-spacing: 0.01em; 
     max-width: 550px; 
     
-    //Анимация появления
-    opacity: 0;
-    animation: fadeUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
-
     a {
       display: inline-block;
       

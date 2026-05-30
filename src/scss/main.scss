@@ -1,8 +1,10 @@
+// Base styles
 @use './base/reset';
 @use './base/variables';
 @use './base/mixins';
 @use './base/global';
 
+// Components
 @use '../components/navigation/navigation';
 @use '../components/header/header';
-@use '../components/services/service';
+@use '../components/services/serviceScss/main';
