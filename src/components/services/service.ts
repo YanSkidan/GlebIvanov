@@ -50,20 +50,25 @@ export function revealServiceBlocks(): void {
     return;
   }
 
+  const ENTER_RATIO = 0.2;
+
   // Наблюдатель скролла
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         const block = entry.target as HTMLElement;
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.intersectionRatio >= ENTER_RATIO) {
           block.classList.add('is-visible');
-        } else {
+          return;
+        }
+
+        if (!entry.isIntersecting) {
           block.classList.remove('is-visible');
         }
       });
     },
     {
-      threshold: 0.18,
+      threshold: [0, ENTER_RATIO],
       rootMargin: '0px 0px -8% 0px',
     }
   );
