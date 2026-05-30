@@ -51,7 +51,6 @@ export function revealServiceBlocks(): void {
   }
 
   const ENTER_RATIO = 0.2;
-  const EXIT_RATIO = 0.06;
 
   // Наблюдатель скролла
   const observer = new IntersectionObserver(
@@ -63,13 +62,13 @@ export function revealServiceBlocks(): void {
           return;
         }
 
-        if (!entry.isIntersecting || entry.intersectionRatio <= EXIT_RATIO) {
+        if (!entry.isIntersecting) {
           block.classList.remove('is-visible');
         }
       });
     },
     {
-      threshold: [0, EXIT_RATIO, ENTER_RATIO],
+      threshold: [0, ENTER_RATIO],
       rootMargin: '0px 0px -8% 0px',
     }
   );
