@@ -17,7 +17,15 @@
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-
+    @include tablet {
+      display: block;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include mobile {
+      width: 95%;
+    }
     // Typography: label
     &-description {
       color: #6e6e73;
@@ -27,6 +35,9 @@
       grid-column: 1;
       grid-row: 1;
       align-self: end;
+      @include tablet {
+        display: none;
+      }
     }
 
     // Left column
@@ -35,6 +46,11 @@
       grid-row: 2;
       display: flex;
       min-height: 0;
+      @include tablet {
+        display: block;
+        width: 100%;
+
+      }
 
       // Navigation list
       &-list {
@@ -47,6 +63,12 @@
         gap: 10px;
         padding: 12px;
         border-radius: $services-card-radius;
+        @include tablet {
+          flex-direction: row;
+          border-radius: 999px;
+          padding: 0px;
+          gap: 5px;
+        }
       }
 
       // Navigation item
@@ -64,13 +86,23 @@
         font: inherit;
         color: #6e6e73;
         cursor: pointer;
-        font-size: 18px;
+        font-size: 20px;
         white-space: nowrap;
         transition:
           transform 0.25s ease,
           background-color 0.25s ease,
           color 0.25s ease;
-
+        @include tablet {
+          padding: 12px 18px;
+          .for_business {
+            display: none;
+          }
+        }
+        @include mobile {
+          padding: 10px 5px;
+          font-size: 12px;
+          gap: 6px;
+        }
         // Interaction: hover
         @include hover {
           &:hover {
@@ -84,14 +116,14 @@
           background: #111113;
           color: #fff;
 
-          & span {
+          .number {
             background: rgba(255, 255, 255, .13);
             color: #fff;
           }
         }
 
         // Number badge
-        & span {
+        .number {
           display: inline-grid;
           place-items: center;
           width: 34px;
@@ -104,6 +136,16 @@
           flex-shrink: 0;
           font-weight: 600;
           user-select: none;
+          @include tablet {
+            width: 24px;
+            height: 24px;
+            font-size: 12px;
+          }
+          @include mobile {
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+          }
         }
       }
     }
@@ -146,6 +188,15 @@
       letter-spacing: -0.03em;
       color: $color-dark;
       margin-bottom: 5px;
+      @include tablet {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        max-width: none;
+        width: 100%;
+        margin: 0 0 12px 10px;
+        font-size: clamp(30px, 5vw, 80px);
+      }
+
     }
   }
 }

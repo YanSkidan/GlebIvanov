@@ -1,8 +1,9 @@
 @use '../../../scss/base/variables' as *;
+@use '../../../scss/base/mixins' as *;
 
 .navbar {
   // Interaction: social hover/focus
-  @media (hover: hover) and (pointer: fine) {
+  @include hover {
     &__social:hover,
     &__social:focus-visible {
       transform: scale(1.05);
@@ -52,7 +53,7 @@
   }
 
   // Interaction: link hover
-  @media (hover: hover) and (pointer: fine) {
+  @include hover {
     &__link:hover {
       color: $color-dark;
       transform: translateY(-1px);
