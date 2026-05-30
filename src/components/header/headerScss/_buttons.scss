@@ -1,0 +1,62 @@
+.header {
+  &__buttons {
+    // Layout
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  &__button {
+    // Layout
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 20px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    text-decoration: none;
+
+    // Typography
+    font-size: clamp(16px, 1.15vw, 20px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+
+    // Interaction + visual
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+    box-shadow: 0 8px 20px rgba(3, 7, 14, 0.22);
+  }
+
+  &__button--primary {
+    // Visual
+    background-color: rgba(11, 18, 28, 0.88);
+    color: #ffffff;
+    border-color: transparent;
+  }
+
+  &__button--secondary {
+    // Visual
+    background-color: rgba(231, 236, 242, 0.9);
+    color: #0f1722;
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 18px rgba(7, 12, 20, 0.16);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__button:hover {
+      transform: translateY(-2px);
+    }
+
+    &__button--primary:hover {
+      background-color: rgba(12, 20, 31, 0.96);
+      box-shadow: 0 12px 26px rgba(2, 6, 12, 0.34);
+    }
+
+    &__button--secondary:hover {
+      background-color: rgba(244, 247, 251, 0.98);
+      box-shadow: 0 12px 24px rgba(7, 12, 20, 0.22);
+    }
+  }
+}

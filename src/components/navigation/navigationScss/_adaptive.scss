@@ -1,0 +1,80 @@
+@use '../../../scss/base/mixins' as *;
+
+.navbar {
+  // Adaptive: tablet
+  @include tablet {
+    // Layout
+    width: calc(100% - 50px);
+    padding: 4px 14px;
+    top: 0;
+
+    &__brand {
+      // Layout
+      gap: 12px;
+    }
+
+    &__social {
+      // Layout
+      width: 28px;
+      height: 28px;
+    }
+
+    &__avatar {
+      // Layout
+      width: 24px;
+      height: 24px;
+    }
+
+    &__logo {
+      // Typography
+      font-size: 24px;
+    }
+
+    &__menu {
+      // Layout + typography
+      gap: 20px;
+      font-size: 20px;
+    }
+  }
+
+  // Adaptive: mobile
+  @include mobile {
+    // Layout
+    width: calc(100% - 40px);
+    padding: 3px 8px;
+
+    &__brand {
+      // Layout
+      gap: 7px;
+    }
+
+    &__social {
+      // Layout
+      width: 26px;
+      height: 26px;
+    }
+
+    &__avatar {
+      // Layout
+      width: 22px;
+      height: 22px;
+    }
+
+    &__logo {
+      // Typography
+      font-size: 18px;
+    }
+
+    &__surname {
+      // Visibility
+      display: none;
+    }
+
+    &__menu {
+      // Layout + typography
+      gap: 8px;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+  }
+}

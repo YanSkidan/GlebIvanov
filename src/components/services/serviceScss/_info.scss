@@ -1,14 +1,14 @@
 @use '../../../scss/base/variables' as *;
 
-// Блок info
+// Services info
 .services__info {
-  // Ряд карточек
+  // Layout
   display: flex;
   gap: 40px;
   margin-left: 15%;
   margin-top: 100px;
 
-  // Карточка info
+  // Card
   & > div {
     min-height: 50px;
     width: 200px;
@@ -24,7 +24,7 @@
     padding: 21px 20px;
   }
 
-  // Заголовок info
+  // Typography: title
   &-title {
     font-size: 18px;
     letter-spacing: -0.03em;
@@ -33,7 +33,7 @@
     line-height: 1.1;
   }
 
-  // Текст info
+  // Typography: description
   &-description {
     font-size: 17px;
     font-weight: 400;

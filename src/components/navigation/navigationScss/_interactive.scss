@@ -1,0 +1,65 @@
+@use '../../../scss/base/variables' as *;
+
+.navbar {
+  // Interaction: social hover/focus
+  @media (hover: hover) and (pointer: fine) {
+    &__social:hover,
+    &__social:focus-visible {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(214, 36, 159, 0.4);
+
+      &::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+  }
+
+  &__link {
+    // Layout
+    position: relative;
+
+    // Visual + interaction
+    color: inherit;
+    transition: color 0.25s ease, transform 0.2s ease;
+
+    // Accessibility
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      color: $color-dark;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 1px;
+      background: $color-dark;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.25s ease;
+    }
+  }
+
+  // Interaction: link hover
+  @media (hover: hover) and (pointer: fine) {
+    &__link:hover {
+      color: $color-dark;
+      transform: translateY(-1px);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}

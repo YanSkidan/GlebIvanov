@@ -5,6 +5,6 @@
 @use './base/global';
 
 // Components
-@use '../components/navigation/navigation';
-@use '../components/header/header';
-@use '../components/services/serviceScss/main';
+@use '../components/navigation/navigationScss/main' as navigationMain;
+@use '../components/header/headerScss/main' as headerMain;
+@use '../components/services/serviceScss/main' as servicesMain;

@@ -1,0 +1,121 @@
+.header {
+  // Layout
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  // Background
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%),
+    radial-gradient(circle at top left, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 70%),
+    url('../images/header_photo_pc.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+
+  &__container {
+    // Layout
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: 0 12%;
+  }
+
+  &__menu {
+    // Typography
+    font-size: clamp(18px, 1.7vw, 40px);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    max-width: 550px;
+    margin-bottom: 25px;
+
+    // Visual
+    background: linear-gradient(180deg, #dbdbdb 50%, #acacac 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__title {
+    // Typography
+    font-size: clamp(42px, 4.3vw, 70px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    max-width: 600px;
+    margin-top: 0;
+
+    a {
+      display: inline-block;
+
+      // Visual
+      background: linear-gradient(180deg, #ffffff 50%, #c4c6c8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      // Interaction
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+
+      &:focus {
+        outline: none;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: translateY(-6px);
+          filter: drop-shadow(0 8px 10px rgba(255, 255, 255, 0.15));
+        }
+
+        &:focus-visible {
+          transform: translateY(-6px);
+          filter: drop-shadow(0 8px 20px rgba(255, 255, 255, 0.15));
+        }
+      }
+    }
+  }
+
+  &__subtitle {
+    // Typography
+    font-size: clamp(18px, 1.9vw, 40px);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    max-width: 550px;
+
+    a {
+      display: inline-block;
+
+      // Visual
+      background: linear-gradient(90deg, #eaeaea 0%, #b8b8ba 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      // Interaction
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+
+      &:focus {
+        outline: none;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: translateY(-3px);
+          filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.1));
+        }
+
+        &:focus-visible {
+          transform: translateY(-3px);
+          filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.1));
+        }
+      }
+    }
+  }
+}
