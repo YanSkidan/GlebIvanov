@@ -1,6 +1,7 @@
 export function clickService(): void {
   // Список кнопок
   const buttons = document.querySelector<HTMLElement>('.services__section-nav-list');
+  const containers = document.querySelectorAll<HTMLElement>('.services__section-article-conteiner');
   if (!buttons) return;
 
   // Делегация клика
@@ -18,6 +19,18 @@ export function clickService(): void {
 
     // Новая активная
     clickedButton.classList.add('is-active');
+
+    // Индекс выбранной кнопки
+    const navButtons = Array.from(
+      buttons.querySelectorAll<HTMLButtonElement>('.services__section-nav-item')
+    );
+    const clickedIndex = navButtons.indexOf(clickedButton);
+    if (clickedIndex < 0) return;
+
+    // Активный контент в article
+    containers.forEach((container, index) => {
+      container.classList.toggle('is-active', index === clickedIndex);
+    });
   });
 }
 
