@@ -74,8 +74,8 @@
           gap: 5px;
         }
         @include mobile {
-          padding: 3px;
-          gap: 3px;
+          padding: 2px;
+          gap: 1px;
         }
       }
 
@@ -115,9 +115,9 @@
           }
         }
         @include mobile {
-          padding: 10px 6px;
-          font-size: 12px;
-          gap: 4px;
+          padding: 8px 4px;
+          font-size: 11px;
+          gap: 2px;
         }
         // Interaction: hover
         @include hover {
@@ -158,9 +158,9 @@
             font-size: 11px;
           }
           @include mobile {
-            width: 18px;
-            height: 18px;
-            font-size: 10px;
+            width: 14px;
+            height: 14px;
+            font-size: 8px;
           }
         }
       }
