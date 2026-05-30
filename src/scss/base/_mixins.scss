@@ -9,7 +9,7 @@
   }
 }
 @mixin hover{
-  @media(hover: hover) and (pointer: fine){
+  @media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
     @content;
   }
 }
